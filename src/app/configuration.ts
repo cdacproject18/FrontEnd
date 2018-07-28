@@ -54,48 +54,10 @@
         {name: 'Cold' , weblinks: 'company-logo9.png' , logo: 'company-logo9.png'}
       ]
     },
-    pricing : {
-      tagline: 'YOUR CHOICE',
-      title: 'We have the right package for you',
-      description: '',
-      plans: [
-        {title: 'Personal', subtitle: 'The standard version' ,
-         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ',
-         currency: '$', price: '19' ,
-         downloads: '5 Downloads', extensions: '2 Extensions' ,
-         tutorials: 'Tutorials' , support: 'Forum Support' , updates: '1 year free updates',
-         btntext: 'Buy Now', btnlink: '#', featured: false
-        },
-        {title: 'Student', subtitle: 'Most popular choice' ,
-         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ',
-         currency: '$', price: '29' ,
-         downloads: '15 Downloads' , extensions: '5 Extensions' ,
-         tutorials: 'Tutorials with Files', support: 'Forum Support', updates: '2 years free updates',
-         btntext: 'Buy Now', btnlink: '#', featured: true
-        },
-        {title: 'Business', subtitle: 'For the whole team' ,
-         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ',
-         currency: '$', price: '49' ,
-         downloads: 'Unlimited Downloads', extensions: 'Unlimited Extensions',
-         tutorials: 'HD Video Tutorials', support: 'Chat Support', updates: 'Lifetime free updates',
-         btntext: 'Buy Now', btnlink: '#', featured: false
-        }
-      ]
-    },
-    gallery: {
-      images: [
-        'gallery-image-1.jpg',
-        'gallery-image-2.jpg',
-        'gallery-image-3.jpg',
-        'gallery-image-4.jpg',
-        'gallery-image-5.jpg',
-        'gallery-image-6.jpg',
-      ]
-    },
     footer: {
      active: true ,
      copyrightText:  ' Made by CDAC-ACTS Students ',
-     developer: '  EventAdda Group ',
+     developer: ' EventAdda Group ',
      developerLink: 'https://cdacacts.in'
     }
   };
