@@ -2,6 +2,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
 
+
 import { AppComponent } from "./app.component";
 import { HomeComponent } from "./home/home.component";
 import { HeaderComponent } from "./header/header.component";
@@ -15,8 +16,11 @@ import { AboutComponent } from "./about/about.component";
 import { AppRoutingModule } from ".//app-routing.module";
 import { ConcertsService } from "./concerts.service";
 import { SportsService } from "./sports.service";
+<<<<<<< HEAD
 import { SportsdetailsComponent } from './sportsdetails/sportsdetails.component';
 import { ConcertsdetailsComponent } from './concertsdetails/concertsdetails.component';
+=======
+>>>>>>> e5f9df25ac990cf4c6d3cdfaafcb125ca44c7cf1
 
 
 @NgModule({
@@ -35,7 +39,6 @@ import { ConcertsdetailsComponent } from './concertsdetails/concertsdetails.comp
     ConcertsdetailsComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
-  providers: [ConcertsService, SportsService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

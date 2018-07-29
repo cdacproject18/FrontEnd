@@ -21,10 +21,10 @@
                             
                                 <div class="error"></div>
                                 <div class="form loginBox">
-                                    <form method="post" action="/login" accept-charset="UTF-8">
-                                    <input id="email" class="form-control" type="text" placeholder="Email" name="email">
-                                    <input id="password" class="form-control" type="password" placeholder="Password" name="password">
-                                    <input class="btn btn-default btn-login" type="button" value="Login" onclick="loginAjax()">
+                                    <form  accept-charset="UTF-8">
+                                    <input id="email" class="form-control" type="text" placeholder="Email" name="email" #custemail>
+                                    <input id="password" class="form-control" type="password" placeholder="Password" name="password" #custpass>
+                                    <input class="btn btn-default btn-login" type="button" value="Login" (click)="onSubmitLogin(custemail.value,custpass.value)">
                                     </form>
                                 </div>
                              </div>
@@ -32,22 +32,21 @@
                         <div class="box">
                             <div class="content registerBox" style="display:none;">
                              <div class="form">
-                                <form method="post" html="{:multipart=>true}" data-remote="true" action="/register" accept-charset="UTF-8">
-                                  <input id="name" class="form-control" type="text" placeholder="Name" name="name" required>
-                                  <input id="email" class="form-control" type="text" placeholder="Email" name="email"required>
-                                  <input id="phoneno" class="form-control" type="tel" placeholder="Mobile No" name="phoneno"required>
+                                <form html="{:multipart=>true}" data-remote="true" accept-charset="UTF-8">
+                                  <input id="name" class="form-control" type="text" placeholder="Name" name="name" required #regname>
+                                  <input id="email" class="form-control" type="text" placeholder="Email" name="email"required #regemail>
+                                  <input id="phoneno" class="form-control" type="tel" placeholder="Mobile No" name="phoneno"required #regnum>
                                   <div style="text-align:left">
-                                      <input type="radio" name="gender" value="male" checked> Male
-                                      <input type="radio" name="gender" value="female"> Female<br/>
+                                      <input type="radio" name="gender" value="male" checked #reggender> Male
+                                      <input type="radio" name="gender" value="female" #reggender> Female<br/>
                               Date Of Birth:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
-                               <input type="date" name="dob" max="2017-12-31"><br/>
-                               <input id="city" class="form-control" type="text" placeholder="City" name="name"required>
-                               <input id="street" class="form-control" type="text" placeholder="Street" name="email"required>
-                               <input id="state" class="form-control" type="text" placeholder="State" name="phoneno"required>
+                               <input type="date" name="dob" max="2017-12-31" #regdate><br/>
+                               <input id="city" class="form-control" type="text" placeholder="City" name="city" required #regcity>
+                               <input id="street" class="form-control" type="text" placeholder="Street" name="street" required #regstreet>
+                               <input id="state" class="form-control" type="text" placeholder="State" name="state" required #regstate>
                               </div> 
-                                <input id="password" class="form-control" type="password" placeholder="Password" name="password"required>
-                                <input id="password_confirmation" class="form-control" type="password" placeholder="Repeat Password" name="password_confirmation"required>
-                                <input class="btn btn-default btn-register" type="submit" value="Create account" name="commit">
+                                <input id="password" class="form-control" type="password" placeholder="Password" name="password" required #regpass>
+                                <input class="btn btn-default btn-register" type="button" value="Create account" name="commit" (click)="onSubmitReg(regname.value,regemail.value,regnum.value,regcity.value,regstreet.value,regstate.value,regpass.value,reggender.value, regdate.value)">
                                 </form>
                                 </div>
                             </div>
