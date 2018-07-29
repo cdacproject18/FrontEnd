@@ -19,6 +19,7 @@ import { SportsService } from "./sports.service";
 import { SportsdetailsComponent } from './sportsdetails/sportsdetails.component';
 import { ConcertsdetailsComponent } from './concertsdetails/concertsdetails.component';
 import { CustomerService } from "./customer.service";
+import { BookingComponent } from './booking/booking.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { CustomerService } from "./customer.service";
     ReviewsComponent,
     AboutComponent,
     SportsdetailsComponent,
-    ConcertsdetailsComponent
+    ConcertsdetailsComponent,
+    BookingComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [ConcertsService, SportsService,CustomerService],
