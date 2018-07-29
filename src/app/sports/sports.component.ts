@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SportsService } from '../sports.service';
 
 @Component({
   selector: 'app-sports',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sports.component.css']
 })
 export class SportsComponent implements OnInit {
-
-  constructor() { }
+  events: Event[];
+  constructor(private sportsService: SportsService) { }
 
   ngOnInit() {
+    console.log('inside init');
+    this.getSports();
+  }
+
+  getSports(){
+    this.sportsService.getSports().subscribe(response => {
+      this.events=response;
+    });
   }
 
 }
