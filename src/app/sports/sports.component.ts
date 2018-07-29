@@ -19,6 +19,7 @@ export class SportsComponent implements OnInit {
     this.sportsService.getSports().subscribe(response => {
       this.events=response;
     });
+    console.log(this.events.length);
   }
 
 }

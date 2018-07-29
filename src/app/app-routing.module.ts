@@ -7,6 +7,8 @@ import { AboutComponent } from './about/about.component';
 import { ReviewsComponent } from './reviews/reviews.component';
 import { SportsComponent } from './sports/sports.component';
 import { ConcertsComponent } from './concerts/concerts.component';
+import { ConcertsdetailsComponent } from './concertsdetails/concertsdetails.component';
+import { SportsdetailsComponent } from './sportsdetails/sportsdetails.component';
 
 
 
@@ -17,6 +19,8 @@ const routes: Routes = [
   {path: 'Concerts' , component: ConcertsComponent },
   {path: 'Reviews' , component: ReviewsComponent },
   {path: 'Sports' , component: SportsComponent },
+  {path: 'concertsdetails/:id' , component: ConcertsdetailsComponent },
+  {path: 'sportsdetails/:id' , component: SportsdetailsComponent }
   
 ];
 

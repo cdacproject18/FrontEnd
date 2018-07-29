@@ -15,6 +15,8 @@ import { AboutComponent } from "./about/about.component";
 import { AppRoutingModule } from ".//app-routing.module";
 import { ConcertsService } from "./concerts.service";
 import { SportsService } from "./sports.service";
+import { SportsdetailsComponent } from './sportsdetails/sportsdetails.component';
+import { ConcertsdetailsComponent } from './concertsdetails/concertsdetails.component';
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import { SportsService } from "./sports.service";
     ConcertsComponent,
     LoginComponent,
     ReviewsComponent,
-    AboutComponent
+    AboutComponent,
+    SportsdetailsComponent,
+    ConcertsdetailsComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [ConcertsService, SportsService],
