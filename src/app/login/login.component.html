@@ -1,3 +1,70 @@
-<p>
-  login works!
-</p>
+<br/>
+    <div class="con">
+        <div class="row">
+            <div class="col-sm-4"><a class="btn login" data-toggle="modal" href="javascript:void(0)" onclick="openLoginModal();">LOG IN</a>
+            </div>
+            <div class="col-sm-4">
+                 <a class="btn register" data-toggle="modal" href="javascript:void(0)" onclick="openRegisterModal();">REGISTER</a></div>
+        </div>
+       
+         
+		 <div class="modal fade login" id="loginModal">
+		      <div class="modal-dialog login animated">
+    		      <div class="modal-content">
+    		         <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Login</h4>
+                    </div>
+                    <div class="modal-body">  
+                        <div class="box">
+                             <div class="content">
+                            
+                                <div class="error"></div>
+                                <div class="form loginBox">
+                                    <form method="post" action="/login" accept-charset="UTF-8">
+                                    <input id="email" class="form-control" type="text" placeholder="Email" name="email">
+                                    <input id="password" class="form-control" type="password" placeholder="Password" name="password">
+                                    <input class="btn btn-default btn-login" type="button" value="Login" onclick="loginAjax()">
+                                    </form>
+                                </div>
+                             </div>
+                        </div>
+                        <div class="box">
+                            <div class="content registerBox" style="display:none;">
+                             <div class="form">
+                                <form method="post" html="{:multipart=>true}" data-remote="true" action="/register" accept-charset="UTF-8">
+                                  <input id="name" class="form-control" type="text" placeholder="Name" name="name" required>
+                                  <input id="email" class="form-control" type="text" placeholder="Email" name="email"required>
+                                  <input id="phoneno" class="form-control" type="tel" placeholder="Mobile No" name="phoneno"required>
+                                  <div style="text-align:left">
+                                      <input type="radio" name="gender" value="male" checked> Male
+                                      <input type="radio" name="gender" value="female"> Female<br/>
+                              Date Of Birth:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+                               <input type="date" name="dob" max="2017-12-31"><br/>
+                               <input id="city" class="form-control" type="text" placeholder="City" name="name"required>
+                               <input id="street" class="form-control" type="text" placeholder="Street" name="email"required>
+                               <input id="state" class="form-control" type="text" placeholder="State" name="phoneno"required>
+                              </div> 
+                                <input id="password" class="form-control" type="password" placeholder="Password" name="password"required>
+                                <input id="password_confirmation" class="form-control" type="password" placeholder="Repeat Password" name="password_confirmation"required>
+                                <input class="btn btn-default btn-register" type="submit" value="Create account" name="commit">
+                                </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="forgot login-footer">
+                            <span>Looking to 
+                                 <a href="javascript: showRegisterForm();">create an account</a>
+                            ?</span>
+                        </div>
+                        <div class="forgot register-footer" style="display:none">
+                             <span>Already have an account?</span>
+                             <a href="javascript: showLoginForm();">Login</a>
+                        </div>
+                    </div>        
+    		      </div>
+		      </div>
+		  </div>
+    </div>
