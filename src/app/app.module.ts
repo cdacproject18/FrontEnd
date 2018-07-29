@@ -2,6 +2,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
 
+
 import { AppComponent } from "./app.component";
 import { HomeComponent } from "./home/home.component";
 import { HeaderComponent } from "./header/header.component";
@@ -15,6 +16,7 @@ import { AboutComponent } from "./about/about.component";
 import { AppRoutingModule } from ".//app-routing.module";
 import { ConcertsService } from "./concerts.service";
 import { SportsService } from "./sports.service";
+import { CustomerService } from "./customer.service";
 
 
 @NgModule({
@@ -31,7 +33,7 @@ import { SportsService } from "./sports.service";
     AboutComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
-  providers: [ConcertsService, SportsService],
+  providers: [ConcertsService, SportsService,CustomerService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
