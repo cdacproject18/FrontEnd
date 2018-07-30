@@ -9,6 +9,8 @@ import { SportsComponent } from './sports/sports.component';
 import { ConcertsComponent } from './concerts/concerts.component';
 import { ConcertsdetailsComponent } from './concertsdetails/concertsdetails.component';
 import { SportsdetailsComponent } from './sportsdetails/sportsdetails.component';
+import { BookingComponent } from './booking/booking.component';
+import { LoginComponent } from './login/login.component';
 
 
 
@@ -20,7 +22,9 @@ const routes: Routes = [
   {path: 'Reviews' , component: ReviewsComponent },
   {path: 'Sports' , component: SportsComponent },
   {path: 'concertsdetails/:id' , component: ConcertsdetailsComponent },
-  {path: 'sportsdetails/:id' , component: SportsdetailsComponent }
+  {path: 'sportsdetails/:id' , component: SportsdetailsComponent },
+  {path: 'Booking' , component: BookingComponent },
+  {path: 'Login', component:LoginComponent}
   
 ];
 

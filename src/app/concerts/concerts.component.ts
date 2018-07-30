@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ConcertsService } from '../concerts.service';
+import { Event } from '../event';
 
 @Component({
   selector: 'app-concerts',
@@ -19,6 +20,7 @@ export class ConcertsComponent implements OnInit {
   getConcerts(){
     this.concertsService.getConcerts().subscribe(response => {
       this.events = response;
+      
     });
   }
 

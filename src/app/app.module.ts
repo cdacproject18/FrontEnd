@@ -20,6 +20,9 @@ import { SportsdetailsComponent } from './sportsdetails/sportsdetails.component'
 import { ConcertsdetailsComponent } from './concertsdetails/concertsdetails.component';
 import { CustomerService } from "./customer.service";
 import { BookingComponent } from './booking/booking.component';
+import { BookingService } from './booking.service';
+import { DataService } from "./data.service";
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -38,8 +41,8 @@ import { BookingComponent } from './booking/booking.component';
     ConcertsdetailsComponent,
     BookingComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
-  providers: [ConcertsService, SportsService,CustomerService],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  providers: [ConcertsService, SportsService,CustomerService,BookingService,DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

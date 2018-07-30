@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomerService } from "../customer.service";
 import { Customer } from '../customer';
+import { DataService } from '../data.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -10,12 +12,17 @@ export class LoginComponent implements OnInit {
 
   cust:Customer;
   
-  constructor(private custService:CustomerService) 
+  constructor(private custService:CustomerService, private dataService: DataService,private router: Router) 
   {}
   ngOnInit() {}
   onSubmitLogin(email, pass)
   {
-   this.custService.custlogin(email,pass).subscribe();
+    console.log(email + pass);
+   this.custService.custlogin(email,pass).subscribe(response=>{
+     this.dataService.customer=response;
+     console.log(this.dataService.customer.name);
+     this.router.navigate([this.dataService.currentPage]);
+   });
   }
   
   onSubmitReg(regname,email,num, regcity, regstreet, regstate,pass,gen,date)

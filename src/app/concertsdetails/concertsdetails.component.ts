@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ConcertsService } from '../concerts.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { DataService } from '../data.service';
+import { Event } from '../event';
 
 @Component({
   selector: 'app-concertsdetails',
@@ -9,20 +11,36 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ConcertsdetailsComponent implements OnInit {
   concert: Event;
+  id: String;
 
-  constructor(private concertsService: ConcertsService, private route: ActivatedRoute) { }
+  constructor(private concertsService: ConcertsService, private dataService: DataService,
+     private route: ActivatedRoute, private router: Router ) { }
 
   ngOnInit() {
     console.log("in concertdetails init");
     this.getConcertById();
   }
 
+  ngOnDestroy() {
+    console.log("destroyed");
+    this.dataService.event = this.concert;
+    this.dataService.currentPage=`concertsdetails/${this.id}`
+  }
+
   getConcertById()
   {
-    const id= this.route.snapshot.paramMap.get('id');
-    this.concertsService.getConcertsById(id).subscribe(response=>{
+   this.id= this.route.snapshot.paramMap.get('id');
+    this.concertsService.getConcertsById(this.id).subscribe(response=>{
       this.concert = response;
     });
   } 
+
+  checkLogin()
+  {
+    if(this.dataService.customer)
+     this.router.navigate(['Booking']);
+     else
+     this.router.navigate(['Login']);
+  }
 
 }

@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class CustomerService {
 
-  private LoginUri="eventaddaserver/customer/";
+  private LoginUri="http://localhost:7070/eventaddaserver/customer/";
 
   constructor(private http:HttpClient) { }
   custlogin(email, pass):Observable<any>
