@@ -1,69 +1,76 @@
 <br/>
-    <div class="con">
-        <div class="row">
-            <div class="col-sm-4"><a class="btn login" data-toggle="modal" href="javascript:void(0)" onclick="openLoginModal();">LOG IN</a>
-            </div>
-            <div class="col-sm-4">
-                 <a class="btn register" data-toggle="modal" href="javascript:void(0)" onclick="openRegisterModal();">REGISTER</a></div>
-        </div>
-       
-         
-		 <div class="modal fade login" id="loginModal">
-		      <div class="modal-dialog login animated">
-    		      <div class="modal-content">
-    		         <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title">Login</h4>
-                    </div>
-                    <div class="modal-body">  
-                        <div class="box">
-                             <div class="content">
-                            
-                                <div class="error"></div>
-                                <div class="form loginBox">
-                                    <form  accept-charset="UTF-8">
-                                    <input id="email" class="form-control" type="text" placeholder="Email" name="email" #custemail>
-                                    <input id="password" class="form-control" type="password" placeholder="Password" name="password" #custpass>
-                                    <input class="btn btn-default btn-login" type="button" value="Login" (click)="onSubmitLogin(custemail.value,custpass.value)">
-                                    </form>
-                                </div>
-                             </div>
-                        </div>
-                        <div class="box">
-                            <div class="content registerBox" style="display:none;">
-                             <div class="form">
-                                <form html="{:multipart=>true}" data-remote="true" accept-charset="UTF-8">
-                                  <input id="name" class="form-control" type="text" placeholder="Name" name="name" required #regname>
-                                  <input id="email" class="form-control" type="text" placeholder="Email" name="email"required #regemail>
-                                  <input id="phoneno" class="form-control" type="tel" placeholder="Mobile No" name="phoneno"required #regnum>
-                                  <div style="text-align:left">
-                                      <input type="radio" name="gender" value="male" checked #reggender> Male
-                                      <input type="radio" name="gender" value="female" #reggender> Female<br/>
-                              Date Of Birth:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
-                               <input type="date" name="dob" max="2017-12-31" #regdate><br/>
-                               <input id="city" class="form-control" type="text" placeholder="City" name="city" required #regcity>
-                               <input id="street" class="form-control" type="text" placeholder="Street" name="street" required #regstreet>
-                               <input id="state" class="form-control" type="text" placeholder="State" name="state" required #regstate>
-                              </div> 
-                                <input id="password" class="form-control" type="password" placeholder="Password" name="password" required #regpass>
-                                <input class="btn btn-default btn-register" type="button" value="Create account" name="commit" (click)="onSubmitReg(regname.value,regemail.value,regnum.value,regcity.value,regstreet.value,regstate.value,regpass.value,reggender.value, regdate.value)">
-                                </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <div class="forgot login-footer">
-                            <span>Looking to 
-                                 <a href="javascript: showRegisterForm();">create an account</a>
-                            ?</span>
-                        </div>
-                        <div class="forgot register-footer" style="display:none">
-                             <span>Already have an account?</span>
-                             <a href="javascript: showLoginForm();">Login</a>
-                        </div>
-                    </div>        
-    		      </div>
-		      </div>
-		  </div>
+<div class="con" *ngIf="cust == null">
+  <div class="row">
+    <div class="col-sm-4">
+      <a class="btn login" data-toggle="modal" href="javascript:void(0)" onclick="openLoginModal();">LOG IN</a>
     </div>
+    <div class="col-sm-4">
+      <a class="btn register" data-toggle="modal" href="javascript:void(0)" onclick="openRegisterModal();">REGISTER</a>
+    </div>
+  </div>
+
+
+  <div class="modal fade login" id="loginModal">
+    <div class="modal-dialog login animated">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Login</h4>
+        </div>
+        <div class="modal-body">
+          <div class="box">
+            <div class="content">
+
+              <div class="error"></div>
+              <div class="form loginBox">
+                <form accept-charset="UTF-8">
+                  <input id="email" class="form-control" type="text" placeholder="Email" name="email" #custemail>
+                  <input id="password" class="form-control" type="password" placeholder="Password" name="password" #custpass>
+                  <input class="btn btn-default btn-login" type="button" value="Login" (click)="onSubmitLogin(custemail.value,custpass.value)">
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="content registerBox" style="display:none;">
+              <div class="form">
+                <form html="{:multipart=>true}" data-remote="true" accept-charset="UTF-8">
+                  <input id="name" class="form-control" type="text" placeholder="Name" name="name" required #regname>
+                  <input id="email" class="form-control" type="text" placeholder="Email" name="email" required #regemail>
+                  <input id="phoneno" class="form-control" type="tel" placeholder="Mobile No" name="phoneno" required #regnum>
+                  <div style="text-align:left">
+                    <input type="radio" name="gender" value="male" checked #reggender> Male
+                    <input type="radio" name="gender" value="female" #reggender> Female
+                    <br/> Date Of Birth:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="date" name="dob" max="2017-12-31" #regdate>
+                    <br/>
+                    <input id="city" class="form-control" type="text" placeholder="City" name="city" required #regcity>
+                    <input id="street" class="form-control" type="text" placeholder="Street" name="street" required #regstreet>
+                    <input id="state" class="form-control" type="text" placeholder="State" name="state" required #regstate>
+                  </div>
+                  <input id="password" class="form-control" type="password" placeholder="Password" name="password" required #regpass>
+                  <input class="btn btn-default btn-register" type="button" value="Create account" name="commit" (click)="onSubmitReg(regname.value,regemail.value,regnum.value,regcity.value,regstreet.value,regstate.value,regpass.value,reggender.value, regdate.value)">
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="forgot login-footer">
+            <span>Looking to
+              <a href="javascript: showRegisterForm();">create an account</a>
+              ?</span>
+          </div>
+          <div class="forgot register-footer" style="display:none">
+            <span>Already have an account?</span>
+            <a href="javascript: showLoginForm();">Login</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="cust">
+  <h4>Welcome {{cust.name}}</h4> &nbsp;
+  <a (click)="logout()">Logout</a>
+</div>

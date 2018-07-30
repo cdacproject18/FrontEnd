@@ -1,13 +1,10 @@
-import { Injectable } from '@angular/core';
-import { Event } from './event';
-import { Customer } from './customer';
+import { Injectable } from "@angular/core";
+import { Event } from "./event";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class DataService {
- event: Event;
- customer: Customer;
- currentPage: string;
-  
+  event: Event;
+  currentPage: string;
 }
