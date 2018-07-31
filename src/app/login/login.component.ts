@@ -1,12 +1,12 @@
-import { Component, OnInit } from "@angular/core";
-import { CustomerService } from "../customer.service";
-import { Customer } from "../customer";
-import { DataService } from "../data.service";
-import { Router } from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import { CustomerService } from '../customer.service';
+import { Customer } from '../customer';
+import { DataService } from '../data.service';
+import { Router } from '@angular/router';
 @Component({
-  selector: "app-login",
-  templateUrl: "./login.component.html",
-  styleUrls: ["./login.component.css"]
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
   cust: Customer;
@@ -18,29 +18,19 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.cust = JSON.parse(localStorage.getItem("curuser"));
+    this.cust = JSON.parse(localStorage.getItem('curuser'));
   }
 
   onSubmitLogin(email, pass) {
     console.log(email + pass);
     this.custService.custlogin(email, pass).subscribe(response => {
       this.cust = response;
-      localStorage.setItem("curuser", JSON.stringify(response));
+      localStorage.setItem('curuser', JSON.stringify(response));
       this.router.navigate([this.dataService.currentPage]);
     });
   }
 
-  onSubmitReg(
-    regname,
-    email,
-    num,
-    regcity,
-    regstreet,
-    regstate,
-    pass,
-    gen,
-    date
-  ) {
+  onSubmitReg(regname, email, num, regcity, regstreet, regstate, pass, gen, date) {
     this.cust = {
       _id: email,
       name: regname,
@@ -51,13 +41,13 @@ export class LoginComponent implements OnInit {
       address: { city: regcity, state: regstate, street: regstreet }
     };
     this.custService.custReg(this.cust).subscribe();
-    //console.log(name+ email);
-    //console.log(num+ city + street+ state+ pass+gen+date);
+    // console.log(name+ email);
+    // console.log(num+ city + street+ state+ pass+gen+date);
   }
 
   logout() {
-    localStorage.setItem("curuser", null);
+    localStorage.setItem('curuser', null);
     this.cust = null;
-    this.router.navigate(["Home"]);
+    this.router.navigate(['Home']);
   }
 }

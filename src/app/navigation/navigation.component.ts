@@ -6,14 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent implements OnInit {
-
   activetab = 'home';
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
-  getActiveTab(tabname: string){
+  ngOnInit() {}
+
+  getActiveTab(tabname: string) {
     this.activetab = tabname;
   }
-
 }

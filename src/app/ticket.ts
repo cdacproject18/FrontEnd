@@ -1,4 +1,4 @@
-import { SeatLocation } from "./seatlocation";
+import { SeatLocation } from './seatlocation';
 
 export class Ticket {
   bookingid: string;

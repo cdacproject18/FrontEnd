@@ -8,18 +8,17 @@ import { SportsService } from '../sports.service';
 })
 export class SportsComponent implements OnInit {
   events: Event[];
-  constructor(private sportsService: SportsService) { }
+  constructor(private sportsService: SportsService) {}
 
   ngOnInit() {
     console.log('inside init');
     this.getSports();
   }
 
-  getSports(){
+  getSports() {
     this.sportsService.getSports().subscribe(response => {
-      this.events=response;
+      this.events = response;
     });
     console.log(this.events.length);
   }
-
 }

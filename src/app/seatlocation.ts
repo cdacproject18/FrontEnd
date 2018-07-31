@@ -1,9 +1,9 @@
 export class SeatLocation {
-    section: string;
-    location: string;
+  section: string;
+  location: string;
 
-    constructor(id: string, loc: string) {
-        this.section = id;
-        this.location = loc;        
-    }
+  constructor(id: string, loc: string) {
+    this.section = id;
+    this.location = loc;
+  }
 }

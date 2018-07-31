@@ -8,19 +8,18 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./sportsdetails.component.css']
 })
 export class SportsdetailsComponent implements OnInit {
- sport: Event;
-  constructor(private sportsService: SportsService, private route: ActivatedRoute) { }
+  sport: Event;
+  constructor(private sportsService: SportsService, private route: ActivatedRoute) {}
 
   ngOnInit() {
-    console.log("in sportsdetails init");
+    console.log('in sportsdetails init');
     this.getSportsById();
   }
 
-  getSportsById()
-  {
-    const id= this.route.snapshot.paramMap.get('id');
-    this.sportsService.getSportsById(id).subscribe(response=>{
+  getSportsById() {
+    const id = this.route.snapshot.paramMap.get('id');
+    this.sportsService.getSportsById(id).subscribe(response => {
       this.sport = response;
     });
-  } 
+  }
 }

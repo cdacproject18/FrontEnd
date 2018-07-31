@@ -7,9 +7,8 @@ import { ConfigService } from '../config.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
   home = {};
-  constructor(private config: ConfigService) { }
+  constructor(private config: ConfigService) {}
 
   ngOnInit() {
     this.home = this.getHome();
@@ -17,6 +16,5 @@ export class HomeComponent implements OnInit {
 
   getHome() {
     return this.config.getConfig().home;
- } 
-
+  }
 }

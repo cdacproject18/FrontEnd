@@ -8,13 +8,12 @@ import { ConfigService } from '../config.service';
 })
 export class FooterComponent implements OnInit {
   footer = {};
-  constructor(private config: ConfigService) { }
+  constructor(private config: ConfigService) {}
 
   ngOnInit() {
-  this.footer = this.getFooter();
+    this.footer = this.getFooter();
   }
   getFooter() {
-   return this.config.getConfig().footer;
+    return this.config.getConfig().footer;
   }
-
 }

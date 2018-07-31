@@ -44,6 +44,8 @@ export class ConcertsdetailsComponent implements OnInit, OnDestroy {
     if (cust) {
       console.log(cust.name);
       this.router.navigate(['Booking']);
-    } else {this.router.navigate(['Login']); }
+    } else {
+      this.router.navigate(['Login']);
+    }
   }
 }

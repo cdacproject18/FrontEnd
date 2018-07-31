@@ -8,7 +8,7 @@ import { ConfigService } from '../config.service';
 })
 export class AboutComponent implements OnInit {
   intro = {};
-  constructor(private config: ConfigService) { }
+  constructor(private config: ConfigService) {}
 
   ngOnInit() {
     this.intro = this.getIntro();
@@ -16,6 +16,5 @@ export class AboutComponent implements OnInit {
 
   getIntro() {
     return this.config.getConfig().intro;
- }
-
+  }
 }

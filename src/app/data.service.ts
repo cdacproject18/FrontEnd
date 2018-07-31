@@ -1,8 +1,8 @@
-import { Injectable } from "@angular/core";
-import { Event } from "./event";
+import { Injectable } from '@angular/core';
+import { Event } from './event';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class DataService {
   event: Event;

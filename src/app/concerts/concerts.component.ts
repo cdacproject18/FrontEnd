@@ -17,10 +17,9 @@ export class ConcertsComponent implements OnInit {
     this.getConcerts();
   }
 
-  getConcerts(){
+  getConcerts() {
     this.concertsService.getConcerts().subscribe(response => {
       this.events = response;
-      
     });
   }
 

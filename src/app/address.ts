@@ -1,6 +1,5 @@
-export class Address 
-{
-    street:String;
-    city:String;
-    state:String;
+export class Address {
+  street: String;
+  city: String;
+  state: String;
 }
