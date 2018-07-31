@@ -21,8 +21,8 @@ export class CancellationComponent implements OnInit {
   customer: Customer;
   event: Event;
   venue: Venue;
-  section: Section[];
-  ticket: Ticket[];
+  section: Section[] = [];
+  ticket: Ticket[] = [];
   seatLocation: SeatLocation[];
 
   constructor(
@@ -64,11 +64,15 @@ export class CancellationComponent implements OnInit {
   }
 
   cancelBook() {
+    console.log('here');
     this.seatLocation.forEach(x => {
       this.section
         .find(y => y.name === x.section)
         .seats.find(z => z.location === x.location).flag = false;
     });
-    this.bookService.cancelBook()
+    console.log('here 2');
+    this.bookService.cancelBook(this.section, this.booking._id);
+    console.log('here 3');
+    this.router.navigate(['Home']);
   }
 }

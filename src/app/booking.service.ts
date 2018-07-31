@@ -79,11 +79,21 @@ export class BookingService {
     return this.http.get<Ticket[]>(url);
   }
 
-  cancelBook(section: Section[], ticket: Ticket[], booking: Booking) {
-
+  cancelBook(section: Section[], booking: string) {
+    section.forEach(x => {
+      this.updateSection(x).subscribe(y => console.log(y));
+    });
+    this.delTicket(booking).subscribe(x => console.log(x));
+    this.delBooking(booking).subscribe(x => console.log(x));
   }
 
-  delTicket(ticket: Ticket): Observable<any> {
-    this.http.delete(this.ticketUrl, ticke);
+  delTicket(bookId: string): Observable<any> {
+    const url = `${this.ticketUrl}${bookId}`;
+    return this.http.delete(url, { responseType: 'text' });
+  }
+
+  delBooking(bookId: string): Observable<any> {
+    const url = `${this.bookUrl}${bookId}`;
+    return this.http.delete(url, { responseType: 'text' });
   }
 }
