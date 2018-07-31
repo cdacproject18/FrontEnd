@@ -8,7 +8,6 @@ import { Observable } from 'rxjs';
 })
 export class CustomerService {
   private LoginUri = 'http://localhost:7070/eventaddaserver/customer/';
-
   constructor(private http: HttpClient) {}
   custlogin(email, pass): Observable<any> {
     const url = `${this.LoginUri}${email}/${pass}`;
@@ -19,4 +18,11 @@ export class CustomerService {
     console.log(cust.name);
     return this.http.post(this.LoginUri, cust, { responseType: 'text' });
   }
+
+  custUpdate(cust: Customer): Observable<any>     //harshal
+  {
+    console.log(cust.name);
+    return this.http.put(this.LoginUri,cust,{responseType:'text'});
+  }
+
 }

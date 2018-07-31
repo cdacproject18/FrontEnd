@@ -71,6 +71,6 @@
   </div>
 </div>
 <div *ngIf="cust">
-  <h4>Welcome {{cust.name}}</h4> &nbsp;
+  <h4>Welcome <a routerLink="Profile">{{cust.name}}</a></h4> &nbsp;
   <a (click)="logout()">Logout</a>
 </div>

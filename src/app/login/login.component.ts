@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
       gender: gen,
       address: { city: regcity, state: regstate, street: regstreet }
     };
-    this.custService.custReg(this.cust).subscribe();
+    this.custService.custReg(this.cust).subscribe(res => this.cust = null);
     // console.log(name+ email);
     // console.log(num+ city + street+ state+ pass+gen+date);
   }

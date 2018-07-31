@@ -11,6 +11,7 @@ import { ConcertsdetailsComponent } from './concertsdetails/concertsdetails.comp
 import { SportsdetailsComponent } from './sportsdetails/sportsdetails.component';
 import { BookingComponent } from './booking/booking.component';
 import { LoginComponent } from './login/login.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/Home', pathMatch: 'full' },
@@ -22,7 +23,8 @@ const routes: Routes = [
   { path: 'concertsdetails/:id', component: ConcertsdetailsComponent },
   { path: 'sportsdetails/:id', component: SportsdetailsComponent },
   { path: 'Booking', component: BookingComponent },
-  { path: 'Login', component: LoginComponent }
+  { path: 'Login', component: LoginComponent },
+  {path: 'Profile', component:ProfileComponent}
 ];
 
 @NgModule({
