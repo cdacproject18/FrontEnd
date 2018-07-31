@@ -1,16 +1,16 @@
-import { Component, OnInit } from "@angular/core";
-import { ConcertsService } from "../concerts.service";
-import { ActivatedRoute, Router } from "@angular/router";
-import { DataService } from "../data.service";
-import { Event } from "../event";
-import { Customer } from "../customer";
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ConcertsService } from '../concerts.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { DataService } from '../data.service';
+import { Event } from '../event';
+import { Customer } from '../customer';
 
 @Component({
-  selector: "app-concertsdetails",
-  templateUrl: "./concertsdetails.component.html",
-  styleUrls: ["./concertsdetails.component.css"]
+  selector: 'app-concertsdetails',
+  templateUrl: './concertsdetails.component.html',
+  styleUrls: ['./concertsdetails.component.css']
 })
-export class ConcertsdetailsComponent implements OnInit {
+export class ConcertsdetailsComponent implements OnInit, OnDestroy {
   concert: Event;
   id: String;
 
@@ -22,28 +22,28 @@ export class ConcertsdetailsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    console.log("in concertdetails init");
+    console.log('in concertdetails init');
     this.getConcertById();
   }
 
   ngOnDestroy() {
-    console.log("destroyed");
+    console.log('destroyed');
     this.dataService.event = this.concert;
     this.dataService.currentPage = `concertsdetails/${this.id}`;
   }
 
   getConcertById() {
-    this.id = this.route.snapshot.paramMap.get("id");
+    this.id = this.route.snapshot.paramMap.get('id');
     this.concertsService.getConcertsById(this.id).subscribe(response => {
       this.concert = response;
     });
   }
 
   checkLogin() {
-    const cust: Customer = JSON.parse(localStorage.getItem("curuser"));
+    const cust: Customer = JSON.parse(localStorage.getItem('curuser'));
     if (cust) {
       console.log(cust.name);
-      this.router.navigate(["Booking"]);
-    } else this.router.navigate(["Login"]);
+      this.router.navigate(['Booking']);
+    } else {this.router.navigate(['Login']); }
   }
 }
