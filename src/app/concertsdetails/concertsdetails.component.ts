@@ -42,7 +42,6 @@ export class ConcertsdetailsComponent implements OnInit, OnDestroy {
   checkLogin() {
     const cust: Customer = JSON.parse(localStorage.getItem('curuser'));
     if (cust) {
-      console.log(cust.name);
       this.router.navigate(['Booking']);
     } else {
       this.router.navigate(['Login']);

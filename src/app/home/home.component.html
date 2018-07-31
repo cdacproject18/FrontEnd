@@ -4,23 +4,22 @@
   <div class="row clearfix">
 
           <div class="col-3">
-    
+
               <div class="section-heading">
-                  <h3>{{home.tagline}}</h3>
-                  <h2 class="section-title">{{home.title}}</h2>
-                  <p class="section-subtitle">{{home.description}}</p>
+                  <h3>POPULAR EVENTS</h3>
+                  <h2 class="section-title">Sports and Concerts</h2>
               </div>
-    
+
           </div>
-    
+
           <div class="col-2-3" >
-    
-              <a href="{{company.weblinks}}" class="col-3" *ngFor="let company of home.companies">
-                  <img src="../assets/images/company-images/{{company.logo}}" alt="Company"/>
-                  <div class="client-overlay"><span>{{company.name}}</span></div>
+
+              <a (click)="getEvent(e)" class="col-3" *ngFor="let e of event">
+                  <img src="../assets/images/company-images/company-logo1.png" alt="Company"/>
+                  <div class="client-overlay"><span>{{e.name}}</span></div>
               </a>
           </div>
-    
+
       </div>
 </section>
 <!--End of Clients-->

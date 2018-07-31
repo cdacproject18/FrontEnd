@@ -9,4 +9,5 @@ export class DataService {
   event: Event;
   currentPage: string;
   booking: Booking;
+  id: string;
 }

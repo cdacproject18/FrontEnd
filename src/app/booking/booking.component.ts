@@ -7,6 +7,7 @@ import { Section } from '../section';
 import { Seat } from '../seat';
 import { SeatLocation } from '../seatlocation';
 import { Router } from '@angular/router';
+import { Customer } from '../customer';
 
 @Component({
   selector: 'app-booking',
@@ -14,6 +15,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./booking.component.css']
 })
 export class BookingComponent implements OnInit {
+  customer: Customer;
   event: Event;
   venue: Venue;
   price = 0;
@@ -31,6 +33,7 @@ export class BookingComponent implements OnInit {
 
   ngOnInit() {
     this.event = this.dataService.event;
+    this.customer = JSON.parse(localStorage.getItem('curuser'));
     if (!this.event) {
       this.router.navigate(['Home']);
     }
@@ -99,9 +102,12 @@ export class BookingComponent implements OnInit {
       this.section,
       this.seatAdded,
       this.price,
-      JSON.parse(localStorage.getItem('curuser'))._id,
+      this.customer._id,
       this.event._id
     );
-    this.router.navigate(['Home']);
+
+    this.dataService.event = this.event;
+    this.dataService.id = `${this.customer._id}${this.event._id}${this.price}`;
+    this.router.navigate(['Confirm']);
   }
 }

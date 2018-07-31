@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ConfigService } from '../config.service';
+import { ConcertsService } from '../concerts.service';
+import { Event } from '../event';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,14 +9,21 @@ import { ConfigService } from '../config.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  home = {};
-  constructor(private config: ConfigService) {}
+  event: Event[] = [];
+
+  constructor(private concertService: ConcertsService, private router: Router) {}
 
   ngOnInit() {
-    this.home = this.getHome();
+    this.concertService.getAllEvents().subscribe(response => {
+      this.event = response;
+    });
   }
 
-  getHome() {
-    return this.config.getConfig().home;
+  getEvent(e: Event) {
+    if (e.categoryId === '101') {
+      this.router.navigate([`concertsdetails/${e._id}`]);
+    } else {
+      this.router.navigate([`sportsdetails/${e._id}`]);
+    }
   }
 }

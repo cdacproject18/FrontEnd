@@ -14,6 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { DisplaybookingComponent } from './displaybooking/displaybooking.component';
 import { CancellationComponent } from './cancellation/cancellation.component';
+import { ConfirmationComponent } from './confirmation/confirmation.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/Home', pathMatch: 'full' },
@@ -28,7 +29,8 @@ const routes: Routes = [
   { path: 'Login', component: LoginComponent },
   {path: 'Profile', component: ProfileComponent},
   { path: 'displaybooking', component: DisplaybookingComponent },
-  { path: 'Cancel', component: CancellationComponent}
+  { path: 'Cancel', component: CancellationComponent },
+  { path: 'Confirm', component: ConfirmationComponent}
 ];
 
 @NgModule({

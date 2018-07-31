@@ -8,12 +8,10 @@ import { Event } from '../event';
   styleUrls: ['./concerts.component.css']
 })
 export class ConcertsComponent implements OnInit {
-
   events: Event[];
-  constructor(private concertsService: ConcertsService) { }
+  constructor(private concertsService: ConcertsService) {}
 
   ngOnInit() {
-    console.log('inside init');
     this.getConcerts();
   }
 
@@ -22,5 +20,4 @@ export class ConcertsComponent implements OnInit {
       this.events = response;
     });
   }
-
 }

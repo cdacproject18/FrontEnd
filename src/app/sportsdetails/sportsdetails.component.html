@@ -1,54 +1,54 @@
-      <!--Content Section-->
-      <div id="services" class="scrollto clearfix">
+<!--Content Section-->
+<div id="services" class="scrollto clearfix">
 
-          <div class="row no-padding-bottom clearfix">
-  
-  
-              <!-- Content Left Side-->
-              <div class="col-3">
-                    <div class="col-3">
-      
-                            <div class="section-heading">
-                                
-                                        <h2 class="section-title">Teams</h2>
-                                        <p *ngFor = ' let a of sport.artist '>
-                                          {{a}}
-                                        </p>
-                            </div>
-                  
-                        </div>
-                  <!--User Testimonial-->
-                  <blockquote class="testimonial text-center bigtest">
-                     
-                  </blockquote>
-                  <!-- End of Testimonial-->
-  
-              </div>
-              <!--End Content Left Side -->
-  
-              <!--Content of the Right Side-->
-              <div class="col-3">
-                  <div class="section-heading">
-                      <h3>Sports</h3>
-                      <h2 class="section-title">{{sport.name}}</h2>
-                      <p class="section-subtitle"></p>
-                  </div>
-                  <p>
-                    {{sport.description}}
-                  </p>
-                  
-                  <!-- Just replace the Video ID "UYJ5IjBRlW8" with the ID of your video on YouTube (Found within the URL) -->
-                  <a href='#' class="button video link-lightbox">
-                      Book Now!
-                  </a>
-              </div>
-              <!--End Content Right Side-->
-  
-              <div class="col-3">
-                  <img src="../assets/images/dancer.jpg" alt="Dancer"/>
-              </div>
-  
-          </div>
-  
-  
+  <div class="row no-padding-bottom clearfix">
+
+
+    <!-- Content Left Side-->
+    <div class="col-3">
+      <div class="col-3">
+
+        <div class="section-heading">
+
+          <h2 class="section-title">Teams</h2>
+          <p *ngFor=' let a of sport.artist '>
+            {{a}}
+          </p>
+        </div>
+
       </div>
+      <!--User Testimonial-->
+      <blockquote class="testimonial text-center bigtest">
+
+      </blockquote>
+      <!-- End of Testimonial-->
+
+    </div>
+    <!--End Content Left Side -->
+
+    <!--Content of the Right Side-->
+    <div class="col-3">
+      <div class="section-heading">
+        <h3>Sports</h3>
+        <h2 class="section-title">{{sport.name}}</h2>
+        <p class="section-subtitle"></p>
+      </div>
+      <p>
+        {{sport.description}}
+      </p>
+
+      <!-- Just replace the Video ID "UYJ5IjBRlW8" with the ID of your video on YouTube (Found within the URL) -->
+      <button class="button video link-lightbox" (click)="checkLogin()">
+        Book Now!
+      </button>
+    </div>
+    <!--End Content Right Side-->
+
+    <div class="col-3">
+      <img src="../assets/images/dancer.jpg" alt="Dancer" />
+    </div>
+
+  </div>
+
+
+</div>

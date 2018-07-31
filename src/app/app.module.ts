@@ -4,7 +4,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { HeaderComponent } from './header/header.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { FooterComponent } from './footer/footer.component';
 import { SportsComponent } from './sports/sports.component';
@@ -25,12 +24,12 @@ import { FormsModule } from '@angular/forms';
 import { CancellationComponent } from './cancellation/cancellation.component';
 import { ProfileComponent } from './profile/profile.component';
 import { DisplaybookingComponent } from './displaybooking/displaybooking.component';
+import { ConfirmationComponent } from './confirmation/confirmation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    HeaderComponent,
     NavigationComponent,
     FooterComponent,
     SportsComponent,
@@ -43,7 +42,8 @@ import { DisplaybookingComponent } from './displaybooking/displaybooking.compone
     BookingComponent,
     CancellationComponent,
     ProfileComponent,
-    DisplaybookingComponent
+    DisplaybookingComponent,
+    ConfirmationComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [ConcertsService, SportsService, CustomerService, BookingService, DataService],

@@ -7,6 +7,7 @@ import { Event } from './event';
   providedIn: 'root'
 })
 export class ConcertsService {
+  private eventUrl = 'http://localhost:7070/eventaddaserver/event/list/';
   private concertsUrl = 'http://localhost:7070/eventaddaserver/event/list/concerts';
   private concertByIdUrl = 'http://localhost:7070/eventaddaserver/event/';
   constructor(private http: HttpClient) {}
@@ -19,5 +20,9 @@ export class ConcertsService {
     console.log('in get concert by id ');
     const url = `${this.concertByIdUrl}${id}`;
     return this.http.get<Event>(url);
+  }
+
+  getAllEvents(): Observable<Event[]> {
+    return this.http.get<Event[]>(this.eventUrl);
   }
 }

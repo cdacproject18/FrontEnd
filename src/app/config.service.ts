@@ -4,9 +4,10 @@ import { configuration } from './configuration';
   providedIn: 'root'
 })
 export class ConfigService {
+
   config = configuration;
-  constructor() {}
+  constructor() { }
   getConfig() {
-    return this.config;
+   return this.config;
   }
 }

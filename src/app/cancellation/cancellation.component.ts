@@ -64,15 +64,13 @@ export class CancellationComponent implements OnInit {
   }
 
   cancelBook() {
-    console.log('here');
     this.seatLocation.forEach(x => {
       this.section
         .find(y => y.name === x.section)
         .seats.find(z => z.location === x.location).flag = false;
     });
-    console.log('here 2');
     this.bookService.cancelBook(this.section, this.booking._id);
-    console.log('here 3');
+    alert('Booking Cancelled');
     this.router.navigate(['Home']);
   }
 }
