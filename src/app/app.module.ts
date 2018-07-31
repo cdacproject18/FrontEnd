@@ -22,6 +22,7 @@ import { BookingComponent } from './booking/booking.component';
 import { BookingService } from './booking.service';
 import { DataService } from './data.service';
 import { FormsModule } from '@angular/forms';
+import { CancellationComponent } from './cancellation/cancellation.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { FormsModule } from '@angular/forms';
     AboutComponent,
     SportsdetailsComponent,
     ConcertsdetailsComponent,
-    BookingComponent
+    BookingComponent,
+    CancellationComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [ConcertsService, SportsService, CustomerService, BookingService, DataService],

@@ -1,11 +1,11 @@
 import { Address } from './address';
 
 export class Customer {
-  _id: String;
-  name: String;
+  _id: string;
+  name: string;
   address: Address;
-  number: String;
+  number: string;
   dob: Date;
-  gender: String;
-  password: String;
+  gender: string;
+  password: string;
 }
