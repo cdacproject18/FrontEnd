@@ -6,6 +6,10 @@ import { Booking } from '../booking';
 import { Customer } from '../customer';
 import { Event } from '../event';
 import { ConcertsService } from '../concerts.service';
+import { Venue } from '../venue';
+import { Ticket } from '../ticket';
+import { Section } from '../section';
+import { SeatLocation } from '../seatlocation';
 
 @Component({
   selector: 'app-cancellation',
@@ -13,31 +17,58 @@ import { ConcertsService } from '../concerts.service';
   styleUrls: ['./cancellation.component.css']
 })
 export class CancellationComponent implements OnInit {
-  booking: Booking[];
+  booking: Booking;
   customer: Customer;
-  event: Event[];
+  event: Event;
+  venue: Venue;
+  section: Section[];
+  ticket: Ticket[];
+  seatLocation: SeatLocation[];
 
-  constructor(private dataService: DataService,
+  constructor(
+    private dataService: DataService,
     private router: Router,
     private bookService: BookingService,
     private concertService: ConcertsService
-  ) { }
+  ) {}
 
   ngOnInit() {
     console.log('in init Cancellation');
     this.customer = JSON.parse(localStorage.getItem('curuser'));
-    if (!this.customer) {
-      this.router.navigate(['Login']);
+    this.booking = this.dataService.booking;
+    if (!this.booking) {
+      this.router.navigate(['Home']);
     }
-    this.bookService.getBookingById(this.customer._id)
-      .subscribe(resp => {
-        this.booking = resp;
-        this.booking.forEach(x => {
-          this.concertService.getConcertsById(x.eventid).subscribe(res => {
-            this.event.push(res);
+
+    this.concertService.getConcertsById(this.booking.eventid).subscribe(response => {
+      // set event
+      this.event = response;
+      this.bookService.getVenue(this.event.venueId).subscribe(resp => {
+        // set venue
+        this.venue = resp;
+        // get sections
+        this.venue.section.forEach(x => {
+          this.bookService.getSection(x).subscribe(y => {
+            this.section.push(y);
           });
         });
       });
+    });
+
+    this.bookService.getBookedTicket(this.booking._id).subscribe(response => {
+      this.ticket = response;
+      this.ticket.forEach(x => {
+        this.seatLocation = x.seatlocation;
+      });
+    });
   }
 
+  cancelBook() {
+    this.seatLocation.forEach(x => {
+      this.section
+        .find(y => y.name === x.section)
+        .seats.find(z => z.location === x.location).flag = false;
+    });
+    this.bookService.cancelBook()
+  }
 }

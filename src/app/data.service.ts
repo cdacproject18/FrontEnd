@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Event } from './event';
+import { Booking } from './booking';
 
 @Injectable({
   providedIn: 'root'
@@ -7,4 +8,5 @@ import { Event } from './event';
 export class DataService {
   event: Event;
   currentPage: string;
+  booking: Booking;
 }

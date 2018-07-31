@@ -68,8 +68,22 @@ export class BookingService {
 
     return this.http.post(this.bookUrl, this.booking, { responseType: 'text' });
   }
+
   getBookingById(id: string): Observable<Booking[]> {
     const url = `${this.bookUrl}customer/${id}`;
     return this.http.get<Booking[]>(url);
+  }
+
+  getBookedTicket(id: string): Observable<Ticket[]> {
+    const url = `${this.ticketUrl}${id}`;
+    return this.http.get<Ticket[]>(url);
+  }
+
+  cancelBook(section: Section[], ticket: Ticket[], booking: Booking) {
+
+  }
+
+  delTicket(ticket: Ticket): Observable<any> {
+    this.http.delete(this.ticketUrl, ticke);
   }
 }

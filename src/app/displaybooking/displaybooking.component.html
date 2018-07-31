@@ -26,6 +26,7 @@
             <br> {{customer.address.city}}
             <br> {{customer.address.state}}
           </p>
+
         </div>
 
       </div>
@@ -41,32 +42,34 @@
     <!--Content of the Right Side-->
     <div class="col-3">
       <div class="section-heading">
-        <h3>Event</h3>
-        <h2 class="section-title">{{event.name}}</h2>
-        <p class="section-subtitle">{{event.description}}</p>
-        <p class="section-subtitle">{{venue.name}}: {{venue.location}}</p>
-      </div>
+        <h3>Booked events</h3>
+        <!-- <h2 class="section-title">{{venue.name}}</h2>
+        <p class="section-subtitle">{{venue.location}}</p>
+        <p class="section-subtitle">{{venue.contact}}</p> -->
 
-      <div class="section-heading">
-        <h3>Ticket detail</h3>
-        <p *ngFor="let t of ticket">
-          Ticket id: {{t.bookingid}}
-          <br> Cost: {{t.price}}
-          <br> Seats:
+        <div *ngFor="let b of booking">
+          <!-- Event Name: {{b.eventname}}-->
+          <h3>{{b._id}}</h3>
+          Event Id: {{b.eventid}}
+          <br>Number of Tickets: {{b.nooftickets}}
+          <br>Date: {{b.timestamp}}
           <br>
-          <li *ngFor="let s of t.seatlocation">
-            {{s.section}} {{s.location}}
-          </li>
-        </p>
+          <button (click)="cancelBooking(b)">
+            Cancel
+          </button>
+        </div>
       </div>
 
-      <button (click)="cancelBook()">Confirm Cancellation</button>
-      <!--End Content Right Side-->
+      <!-- Just replace the Video ID "UYJ5IjBRlW8" with the ID of your video on YouTube (Found within the URL) -->
 
     </div>
+    <!--End Content Right Side-->
 
     <div class="col-3">
       <img src="../assets/images/dancer.jpg" alt="Dancer" />
     </div>
 
   </div>
+
+
+</div>
