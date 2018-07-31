@@ -104,8 +104,4 @@ export class BookingComponent implements OnInit {
     );
     this.router.navigate(['Home']);
   }
-
-  displayBooked() {
-    this.router.navigate(['displaybooking']);
-  }
 }

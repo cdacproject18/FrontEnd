@@ -5,7 +5,6 @@ import { DataService } from '../data.service';
 import { Router } from '@angular/router';
 import { Address } from '../address';
 
-
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -19,16 +18,16 @@ export class ProfileComponent implements OnInit {
     private dataService: DataService,
     private router: Router
   ) {}
+
   ngOnInit() {
     this.cust = JSON.parse(localStorage.getItem('curuser'));
   }
-  onSave(name, email, number)     
-  {
-    console.log(name+ email+ number);
+
+  onSave(name, email, number) {
+    console.log(name + email + number);
     this.cust.name = name;
-    this.cust._id=email;
-    this.cust.number=number;
+    this.cust._id = email;
+    this.cust.number = number;
     this.custService.custUpdate(this.cust).subscribe();
-    //console.log(this.cust.name)
   }
 }

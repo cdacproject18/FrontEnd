@@ -2,26 +2,41 @@
 <br/>
 <br/>
 <br/>
-<h2 align="center">Profie</h2>
+<h2 align="center">Profile &nbsp; &nbsp;
+  <a routerLink="/displaybooking">Show Booking</a>
+</h2>
 <div>
   <table align="center">
     <tr>
-      <td width="30%">Name:</td><td><input type="text" name="name" value={{cust.name}} #name></td>
+      <td width="30%">Name:</td>
+      <td>
+        <input type="text" name="name" value={{cust.name}} #name>
+      </td>
     </tr>
     <br/>
     <tr>
-        <td width="30%">Email:</td><td><input type="text" name="email" value={{cust._id}} #email></td>
+      <td width="30%">Email:</td>
+      <td>
+        <input type="text" name="email" value={{cust._id}} #email>
+      </td>
     </tr>
     <br/>
     <tr>
-        <td width="30%">Contact:</td><td><input type="text" name="contact" value={{cust.number}} #number></td>
+      <td width="30%">Contact:</td>
+      <td>
+        <input type="text" name="contact" value={{cust.number}} #number>
+      </td>
     </tr>
     <tr>
-        <td width="30%">Adress:</td><td><input type="text" name="address" value="{{cust.address.state}}, {{cust.address.city}}, {{cust.address.street}}" readonly></td>
+      <td width="30%">Adress:</td>
+      <td>
+        <input type="text" name="address" value="{{cust.address.state}}, {{cust.address.city}}, {{cust.address.street}}" readonly>
+      </td>
     </tr>
     <tr>
-       <td> <input type="button" value="save" (click)="onSave(name.value, email.value, number.value)" class="btn btn-default btn-login"></td>
-       <td> <a routerLink="displaybooking">Show Booking</a></td>
+      <td>
+        <input type="button" value="save" (click)="onSave(name.value, email.value, number.value)" class="btn btn-default btn-login">
+      </td>
     </tr>
   </table>
 </div>
