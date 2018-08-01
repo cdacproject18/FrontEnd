@@ -23,7 +23,7 @@ export class DisplaybookingComponent implements OnInit {
     if (!this.customer) {
       this.router.navigate(['Login']);
     }
-    this.bookService.getBookingById(this.customer._id).subscribe(resp => {
+    this.bookService.getBookingById(this.customer.number).subscribe(resp => {
       this.booking = resp;
     });
   }

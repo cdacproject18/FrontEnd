@@ -1,50 +1,135 @@
 <div id="header" class="nav-collapse nav-solid">
   <div class="row clearfix">
-      <div class="col-1">
+    <div class="col-1">
 
-          <!--Logo-->
-          <div id="logo">
+      <!--Logo-->
+      <div id="logo">
 
-              <!--Logo that is shown on the banner-->
-              <img src="assets/images/mainlogo-1.png" id="banner-logo" alt="Landing Page"/>
-              <!--End of Banner Logo-->
+        <!--Logo that is shown on the banner-->
+        <img src="assets/images/mainlogo-1.png" id="banner-logo" alt="Landing Page" />
+        <!--End of Banner Logo-->
 
-              <!--The Logo that is shown on the sticky Navigation Bar-->
-              <img src="assets/images/mainlogo-1.png" id="navigation-logo" alt="Landing Page"/>
-              
-              <!--End of Navigation Logo-->
+        <!--The Logo that is shown on the sticky Navigation Bar-->
+        <img src="assets/images/mainlogo-1.png" id="navigation-logo" alt="Landing Page" />
 
-          </div>
-          <!--End of Logo-->
-          <aside>
-              <app-login></app-login>
-          </aside>
-          <!--Main Navigation-->
-            <nav id="nav-main">
-                <ul>
-                    <li>
-                        <a routerLink="/Home" (click)='getActiveTab("home")' [class.active]='activetab=== "home"'>Home</a>
-                    </li>
-                    <li>
-                        <a routerLink="/Sports" (click)='getActiveTab("sports")' [class.active]='activetab=== "sports"'>Sports</a>
-                    </li>
-                    <li>
-                        <a routerLink="/Concerts" (click)='getActiveTab("concerts")' [class.active]='activetab=== "concerts"'>Concerts</a>
-                    </li>
-                    <li>
-                        <a routerLink="/Reviews" (click)='getActiveTab("reviews")' [class.active]='activetab=== "reviews"'>Reviews</a>
-                    </li>
-                    <li>
-                        <a routerLink="/About" (click)='getActiveTab("about")' [class.active]='activetab=== "about"'>About</a>
-                    </li>
-                  
-                </ul>
-            </nav>
-          <!--End of Main Navigation-->
-
-          <div id="nav-trigger"><span></span></div>
-          <nav id="nav-mobile"></nav>
+        <!--End of Navigation Logo-->
 
       </div>
+      <!--End of Logo-->
+      <aside>
+        <br/>
+        <div class="con" *ngIf="cust == null">
+          <div class="row">
+            <div class="col-sm-4">
+              <a class="btn login" data-toggle="modal" href="javascript:void(0)" onclick="openLoginModal();">LOG IN</a>
+            </div>
+            <div class="col-sm-4">
+              <a class="btn register" data-toggle="modal" href="javascript:void(0)" onclick="openRegisterModal();">REGISTER</a>
+            </div>
+          </div>
+
+
+          <div class="modal fade login" id="loginModal">
+            <div class="modal-dialog login animated">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  <h4 class="modal-title">Login</h4>
+                </div>
+                <div class="modal-body">
+                  <div class="box">
+                    <div class="content">
+
+                      <div class="error"></div>
+                      <div class="form loginBox">
+                        <form (ngSubmit)="onSubmitLogin()" accept-charset="UTF-8">
+                          <input id="email" [(ngModel)]="id" class="form-control" type="email" placeholder="Email" name="email" required>
+                          <input id="password" [(ngModel)]="password" class="form-control" type="password" placeholder="Password" name="password" required>
+                          <input class="btn btn-default btn-login" type="submit" value="Login">
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="box">
+                    <div class="content registerBox" style="display:none;">
+                      <div class="form">
+                        <form html="{:multipart=>true}" (ngSubmit)="onSubmitLogin()" data-remote="true" accept-charset="UTF-8">
+                          <input id="name" class="form-control" [(ngModel)]="regCust.name" type="text" placeholder="Name" name="name" required>
+                          <input id="email" class="form-control" [(ngModel)]="regCust._id" type="email" placeholder="Email" name="email" required>
+                          <input id="phoneno" class="form-control" [(ngModel)]="regCust.number" type="tel" placeholder="Mobile No" name="phoneno" required>
+                          <div style="text-align:left">
+                            <input type="radio" name="gender" [(ngModel)]="regCust.gender" value="male" checked> Male
+                            <input type="radio" name="gender" [(ngModel)]="regCust.gender" value="female"> Female
+                            <br/> Date Of Birth:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="date" name="dob" max="2017-12-31" [(ngModel)]="regCust.dob">
+                            <br/>
+                            <input id="city" class="form-control" type="text" [(ngModel)]="regCust.address.city" placeholder="City" name="city" required>
+                            <input id="street" class="form-control" type="text" [(ngModel)]="regCust.address.street" placeholder="Street" name="street"
+                              required>
+                            <input id="state" class="form-control" type="text" [(ngModel)]="regCust.address.state" placeholder="State" name="state" required>
+                          </div>
+                          <input id="password" class="form-control" type="password" placeholder="Password" [(ngModel)]="regCust.password" name="password"
+                            required>
+                          <input class="btn btn-default btn-register" type="button" value="Create account" name="commit" (click)="onSubmitReg()">
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <div class="forgot login-footer">
+                    <span>Looking to
+                      <a href="javascript: showRegisterForm();">create an account</a>
+                      ?</span>
+                  </div>
+                  <div class="forgot register-footer" style="display:none">
+                    <span>Already have an account?</span>
+                    <a href="javascript: showLoginForm();">Login</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="cust">
+          <h4>Welcome
+            <a routerLink="Profile">{{cust.name}}</a>
+          </h4> &nbsp;
+          <a (click)="logout()">Logout</a>
+        </div>
+
+      </aside>
+      <!--Main Navigation-->
+      <nav id="nav-main">
+        <ul>
+          <li>
+            <a routerLink="/Home" (click)='getActiveTab("home")' [class.active]='activetab=== "home"'>Home</a>
+          </li>
+          <li>
+            <a routerLink="/Sports" (click)='getActiveTab("sports")' [class.active]='activetab=== "sports"'>Sports</a>
+          </li>
+          <li>
+            <a routerLink="/Concerts" (click)='getActiveTab("concerts")' [class.active]='activetab=== "concerts"'>Concerts</a>
+          </li>
+          <li>
+            <a routerLink="/Reviews" (click)='getActiveTab("reviews")' [class.active]='activetab=== "reviews"'>Reviews</a>
+          </li>
+          <li>
+            <a routerLink="/About" (click)='getActiveTab("about")' [class.active]='activetab=== "about"'>About</a>
+          </li>
+          <li *ngIf="cust != null">
+              <a routerLink="/displaybooking" (click)='getActiveTab("displaybooking")' [class.active]='activetab=== "displaybooking"'>Bookings</a>
+            </li>
+        </ul>
+      </nav>
+      <!--End of Main Navigation-->
+
+      <div id="nav-trigger">
+        <span></span>
+      </div>
+      <nav id="nav-mobile"></nav>
+
+    </div>
   </div>
-</div><!--End of Header-->
+</div>
+<!--End of Header-->

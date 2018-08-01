@@ -8,4 +8,8 @@ export class Customer {
   dob: Date;
   gender: string;
   password: string;
+
+  constructor() {
+    this.address = new Address();
+  }
 }

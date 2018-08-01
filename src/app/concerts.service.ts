@@ -2,14 +2,15 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Event } from './event';
+import { baseDomain } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ConcertsService {
-  private eventUrl = 'http://localhost:7070/eventaddaserver/event/list/';
-  private concertsUrl = 'http://localhost:7070/eventaddaserver/event/list/concerts';
-  private concertByIdUrl = 'http://localhost:7070/eventaddaserver/event/';
+  private eventUrl = `${baseDomain}event/list/`;
+  private concertsUrl = `${baseDomain}event/list/concerts`;
+  private concertByIdUrl = `${baseDomain}event/`;
   constructor(private http: HttpClient) {}
 
   getConcerts(): Observable<Event[]> {

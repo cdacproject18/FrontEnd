@@ -15,11 +15,6 @@
             {{customer.name}}
           </p>
 
-          <h3 class="section-title">DOB</h3>
-          <p>
-            {{customer.dob}}
-          </p>
-
           <h3 class="section-title">Address</h3>
           <p>
             {{customer.address.street}}
@@ -52,7 +47,7 @@
           <h3>{{b._id}}</h3>
           Event Id: {{b.eventid}}
           <br>Number of Tickets: {{b.nooftickets}}
-          <br>Date: {{b.timestamp}}
+          <br>Date: {{b.timestamp | date: 'medium'}}
           <br>
           <button (click)="cancelBooking(b)">
             Cancel

@@ -23,6 +23,7 @@ export class ConcertsdetailsComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     console.log('in concertdetails init');
+    this.concert = new Event();
     this.getConcertById();
   }
 
@@ -44,7 +45,7 @@ export class ConcertsdetailsComponent implements OnInit, OnDestroy {
     if (cust) {
       this.router.navigate(['Booking']);
     } else {
-      this.router.navigate(['Login']);
+      alert('Login to continue');
     }
   }
 }

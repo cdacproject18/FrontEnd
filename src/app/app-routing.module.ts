@@ -10,7 +10,6 @@ import { ConcertsComponent } from './concerts/concerts.component';
 import { ConcertsdetailsComponent } from './concertsdetails/concertsdetails.component';
 import { SportsdetailsComponent } from './sportsdetails/sportsdetails.component';
 import { BookingComponent } from './booking/booking.component';
-import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { DisplaybookingComponent } from './displaybooking/displaybooking.component';
 import { CancellationComponent } from './cancellation/cancellation.component';
@@ -26,7 +25,6 @@ const routes: Routes = [
   { path: 'concertsdetails/:id', component: ConcertsdetailsComponent },
   { path: 'sportsdetails/:id', component: SportsdetailsComponent },
   { path: 'Booking', component: BookingComponent },
-  { path: 'Login', component: LoginComponent },
   {path: 'Profile', component: ProfileComponent},
   { path: 'displaybooking', component: DisplaybookingComponent },
   { path: 'Cancel', component: CancellationComponent },

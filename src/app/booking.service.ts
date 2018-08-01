@@ -6,15 +6,16 @@ import { Section } from './section';
 import { SeatLocation } from './seatlocation';
 import { Ticket } from './ticket';
 import { Booking } from './booking';
+import { baseDomain } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookingService {
-  venueUrl = 'http://localhost:7070/eventaddaserver/venue';
-  sectionUrl = 'http://localhost:7070/eventaddaserver/section/';
-  bookUrl = 'http://localhost:7070/eventaddaserver/booking/';
-  ticketUrl = 'http://localhost:7070/eventaddaserver/ticket/';
+  venueUrl = `${baseDomain}venue`;
+  sectionUrl = `${baseDomain}section/`;
+  bookUrl = `${baseDomain}booking/`;
+  ticketUrl = `${baseDomain}ticket/`;
 
   ticket: Ticket;
   booking: Booking;

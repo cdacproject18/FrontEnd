@@ -8,7 +8,6 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { FooterComponent } from './footer/footer.component';
 import { SportsComponent } from './sports/sports.component';
 import { ConcertsComponent } from './concerts/concerts.component';
-import { LoginComponent } from './login/login.component';
 import { ReviewsComponent } from './reviews/reviews.component';
 import { AboutComponent } from './about/about.component';
 import { AppRoutingModule } from './/app-routing.module';
@@ -34,7 +33,6 @@ import { ConfirmationComponent } from './confirmation/confirmation.component';
     FooterComponent,
     SportsComponent,
     ConcertsComponent,
-    LoginComponent,
     ReviewsComponent,
     AboutComponent,
     SportsdetailsComponent,

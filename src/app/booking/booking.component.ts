@@ -33,6 +33,7 @@ export class BookingComponent implements OnInit {
 
   ngOnInit() {
     this.event = this.dataService.event;
+    this.venue = new Venue();
     this.customer = JSON.parse(localStorage.getItem('curuser'));
     if (!this.event) {
       this.router.navigate(['Home']);
@@ -102,12 +103,12 @@ export class BookingComponent implements OnInit {
       this.section,
       this.seatAdded,
       this.price,
-      this.customer._id,
+      this.customer.number,
       this.event._id
     );
 
     this.dataService.event = this.event;
-    this.dataService.id = `${this.customer._id}${this.event._id}${this.price}`;
+    this.dataService.id = `${this.customer.number}${this.event._id}${this.price}`;
     this.router.navigate(['Confirm']);
   }
 }

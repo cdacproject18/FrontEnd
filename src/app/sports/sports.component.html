@@ -1,23 +1,23 @@
 <section id="clients" class="scrollto clearfix" >
 
         <div class="row clearfix">
-      
+
                 <div class="col-3">
-          
+
                     <div class="section-heading">
                         <h2 class="section-title">Sports</h2>
                     </div>
-          
+
                 </div>
-          
+
                 <div class="col-2-3" >
-          
+
                     <a routerLink="/sportsdetails/{{event._id}}" class="col-3" *ngFor="let event of events">
-                        <img src="../../assets/images/company-images/company-logo1.png" alt="{{event.name}}"/>
+                        <img src="../../assets/images/events/{{i}}" alt="{{event.name}}" *ngFor="let i of event.image"/>
                         <div class="client-overlay">
                           <span>{{event.name}}</span></div>
                     </a>
                 </div>
-          
+
             </div>
       </section>

@@ -15,7 +15,7 @@
           <div class="col-2-3" >
 
               <a (click)="getEvent(e)" class="col-3" *ngFor="let e of event">
-                  <img src="../assets/images/company-images/company-logo1.png" alt="Company"/>
+                  <img src="../assets/images/events/{{i}}" *ngFor="let i of e.image" alt="Company"/>
                   <div class="client-overlay"><span>{{e.name}}</span></div>
               </a>
           </div>

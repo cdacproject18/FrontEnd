@@ -44,7 +44,7 @@ export class SportsdetailsComponent implements OnInit, OnDestroy {
     if (cust) {
       this.router.navigate(['Booking']);
     } else {
-      this.router.navigate(['Login']);
+      alert('Login to continue');
     }
   }
 }
