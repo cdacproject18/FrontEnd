@@ -44,12 +44,11 @@
 
         <div *ngFor="let b of booking">
           <!-- Event Name: {{b.eventname}}-->
-          <h3>{{b._id}}</h3>
-          Event Id: {{b.eventid}}
-          <br>Number of Tickets: {{b.nooftickets}}
-          <br>Date: {{b.timestamp | date: 'medium'}}
-          <br>
-          <button (click)="cancelBooking(b)">
+          <h3>{{b._id}}</h3><br>
+          Event Id: {{b.eventid}}<br>
+          <br>Number of Tickets: {{b.nooftickets}}<br>
+          <br>Date: {{b.timestamp | date: 'medium'}}<br>
+          <button class="button video link-lightbox" (click)="cancelBooking(b)">
             Cancel
           </button>
         </div>
